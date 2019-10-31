@@ -29,6 +29,7 @@ const mergeImages = (sources = [], options = {}) => new Promise(resolve => {
 		const img = new Image();
 		img.onerror = () => reject(new Error('Couldn\'t load image'));
 		img.onload = () => resolve(Object.assign({}, source, { img }));
+		img.setAttribute('crossOrigin', 'Anonymous');
 		img.src = source.src;
 	}));
 
